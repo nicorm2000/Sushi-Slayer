@@ -1,16 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GridController : MonoBehaviour
 {
     public Vector2Int gridSize;
     public float cellRadius = 0.5f;
-    public FlowField currentFlowField;
+    public FlowField curFlowField;
     public GridDebug gridDebug;
 
     private void InitializeFlowField()
     {
-        currentFlowField = new FlowField(cellRadius, gridSize);
-        currentFlowField.CreateGrid();
+        curFlowField = new FlowField(cellRadius, gridSize);
+        curFlowField.CreateGrid();
+        gridDebug.SetFlowField(curFlowField);
     }
 
     private void Update()
@@ -19,15 +22,16 @@ public class GridController : MonoBehaviour
         {
             InitializeFlowField();
 
-            currentFlowField.CreateCostField();
+            curFlowField.CreateCostField();
 
             Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);
-
             Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            Cell destinationCell = curFlowField.GetCellFromWorldPos(worldMousePos);
+            curFlowField.CreateIntegrationField(destinationCell);
 
-            Cell destinationCell = currentFlowField.GetCellFromWorldPos(worldMousePos);
+            curFlowField.CreateFlowField();
 
-            currentFlowField.CreateIntegrationField(destinationCell);
+            gridDebug.DrawFlowField();
         }
     }
 }

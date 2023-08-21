@@ -13,7 +13,7 @@ public class GridDebug : MonoBehaviour
 
     private Vector2Int gridSize;
     private float cellRadius;
-    private FlowField curFlowField;
+    private FlowField currentFlowField;
 
     private Sprite[] ffIcons;
 
@@ -24,131 +24,131 @@ public class GridDebug : MonoBehaviour
     
     public void SetFlowField(FlowField newFlowField)
     {
-        curFlowField = newFlowField;
+        currentFlowField = newFlowField;
         cellRadius = newFlowField.cellRadius;
         gridSize = newFlowField.gridSize;
     }
-    //
-    //public void DrawFlowField()
-    //{
-    //    ClearCellDisplay();
-    //
-    //    switch (curDisplayType)
-    //    {
-    //        case FlowFieldDisplayType.AllIcons:
-    //            DisplayAllCells();
-    //            break;
-    //
-    //        case FlowFieldDisplayType.DestinationIcon:
-    //            DisplayDestinationCell();
-    //            break;
-    //
-    //        default:
-    //            break;
-    //    }
-    //}
-    //
-    //private void DisplayAllCells()
-    //{
-    //    if (curFlowField == null) { return; }
-    //    foreach (Cell curCell in curFlowField.grid)
-    //    {
-    //        DisplayCell(curCell);
-    //    }
-    //}
-    //
-    //private void DisplayDestinationCell()
-    //{
-    //    if (curFlowField == null) { return; }
-    //    DisplayCell(curFlowField.destinationCell);
-    //}
-    //
-    //private void DisplayCell(Cell cell)
-    //{
-    //    GameObject iconGO = new GameObject();
-    //    SpriteRenderer iconSR = iconGO.AddComponent<SpriteRenderer>();
-    //    iconGO.transform.parent = transform;
-    //    iconGO.transform.position = cell.worldPos;
-    //
-    //    if (cell.cost == 0)
-    //    {
-    //        iconSR.sprite = ffIcons[3];
-    //        Quaternion newRot = Quaternion.Euler(90, 0, 0);
-    //        iconGO.transform.rotation = newRot;
-    //    }
-    //    else if (cell.cost == byte.MaxValue)
-    //    {
-    //        iconSR.sprite = ffIcons[2];
-    //        Quaternion newRot = Quaternion.Euler(90, 0, 0);
-    //        iconGO.transform.rotation = newRot;
-    //    }
-    //    else if (cell.bestDirection == GridDirection.North)
-    //    {
-    //        iconSR.sprite = ffIcons[0];
-    //        Quaternion newRot = Quaternion.Euler(90, 0, 0);
-    //        iconGO.transform.rotation = newRot;
-    //    }
-    //    else if (cell.bestDirection == GridDirection.South)
-    //    {
-    //        iconSR.sprite = ffIcons[0];
-    //        Quaternion newRot = Quaternion.Euler(90, 180, 0);
-    //        iconGO.transform.rotation = newRot;
-    //    }
-    //    else if (cell.bestDirection == GridDirection.East)
-    //    {
-    //        iconSR.sprite = ffIcons[0];
-    //        Quaternion newRot = Quaternion.Euler(90, 90, 0);
-    //        iconGO.transform.rotation = newRot;
-    //    }
-    //    else if (cell.bestDirection == GridDirection.West)
-    //    {
-    //        iconSR.sprite = ffIcons[0];
-    //        Quaternion newRot = Quaternion.Euler(90, 270, 0);
-    //        iconGO.transform.rotation = newRot;
-    //    }
-    //    else if (cell.bestDirection == GridDirection.NorthEast)
-    //    {
-    //        iconSR.sprite = ffIcons[1];
-    //        Quaternion newRot = Quaternion.Euler(90, 0, 0);
-    //        iconGO.transform.rotation = newRot;
-    //    }
-    //    else if (cell.bestDirection == GridDirection.NorthWest)
-    //    {
-    //        iconSR.sprite = ffIcons[1];
-    //        Quaternion newRot = Quaternion.Euler(90, 270, 0);
-    //        iconGO.transform.rotation = newRot;
-    //    }
-    //    else if (cell.bestDirection == GridDirection.SouthEast)
-    //    {
-    //        iconSR.sprite = ffIcons[1];
-    //        Quaternion newRot = Quaternion.Euler(90, 90, 0);
-    //        iconGO.transform.rotation = newRot;
-    //    }
-    //    else if (cell.bestDirection == GridDirection.SouthWest)
-    //    {
-    //        iconSR.sprite = ffIcons[1];
-    //        Quaternion newRot = Quaternion.Euler(90, 180, 0);
-    //        iconGO.transform.rotation = newRot;
-    //    }
-    //    else
-    //    {
-    //        iconSR.sprite = ffIcons[0];
-    //    }
-    //}
-    //
-    //public void ClearCellDisplay()
-    //{
-    //    foreach (Transform t in transform)
-    //    {
-    //        GameObject.Destroy(t.gameObject);
-    //    }
-    //}
+    
+    public void DrawFlowField()
+    {
+        ClearCellDisplay();
+    
+        switch (curDisplayType)
+        {
+            case FlowFieldDisplayType.AllIcons:
+                DisplayAllCells();
+                break;
+    
+            case FlowFieldDisplayType.DestinationIcon:
+                DisplayDestinationCell();
+                break;
+    
+            default:
+                break;
+        }
+    }
+    
+    private void DisplayAllCells()
+    {
+        if (currentFlowField == null) { return; }
+        foreach (Cell curCell in currentFlowField.grid)
+        {
+            DisplayCell(curCell);
+        }
+    }
+    
+    private void DisplayDestinationCell()
+    {
+        if (currentFlowField == null) { return; }
+        DisplayCell(currentFlowField.destinationCell);
+    }
+    
+    private void DisplayCell(Cell cell)
+    {
+        GameObject iconGO = new GameObject();
+        SpriteRenderer iconSR = iconGO.AddComponent<SpriteRenderer>();
+        iconGO.transform.parent = transform;
+        iconGO.transform.position = cell.worldPos;
+    
+        if (cell.cost == 0)
+        {
+            iconSR.sprite = ffIcons[3];
+            Quaternion newRot = Quaternion.Euler(90, 0, 0);
+            iconGO.transform.rotation = newRot;
+        }
+        else if (cell.cost == byte.MaxValue)
+        {
+            iconSR.sprite = ffIcons[2];
+            Quaternion newRot = Quaternion.Euler(90, 0, 0);
+            iconGO.transform.rotation = newRot;
+        }
+        else if (cell.bestDirection == GridDirection.North)
+        {
+            iconSR.sprite = ffIcons[0];
+            Quaternion newRot = Quaternion.Euler(90, 0, 0);
+            iconGO.transform.rotation = newRot;
+        }
+        else if (cell.bestDirection == GridDirection.South)
+        {
+            iconSR.sprite = ffIcons[0];
+            Quaternion newRot = Quaternion.Euler(90, 180, 0);
+            iconGO.transform.rotation = newRot;
+        }
+        else if (cell.bestDirection == GridDirection.East)
+        {
+            iconSR.sprite = ffIcons[0];
+            Quaternion newRot = Quaternion.Euler(90, 90, 0);
+            iconGO.transform.rotation = newRot;
+        }
+        else if (cell.bestDirection == GridDirection.West)
+        {
+            iconSR.sprite = ffIcons[0];
+            Quaternion newRot = Quaternion.Euler(90, 270, 0);
+            iconGO.transform.rotation = newRot;
+        }
+        else if (cell.bestDirection == GridDirection.NorthEast)
+        {
+            iconSR.sprite = ffIcons[1];
+            Quaternion newRot = Quaternion.Euler(90, 0, 0);
+            iconGO.transform.rotation = newRot;
+        }
+        else if (cell.bestDirection == GridDirection.NorthWest)
+        {
+            iconSR.sprite = ffIcons[1];
+            Quaternion newRot = Quaternion.Euler(90, 270, 0);
+            iconGO.transform.rotation = newRot;
+        }
+        else if (cell.bestDirection == GridDirection.SouthEast)
+        {
+            iconSR.sprite = ffIcons[1];
+            Quaternion newRot = Quaternion.Euler(90, 90, 0);
+            iconGO.transform.rotation = newRot;
+        }
+        else if (cell.bestDirection == GridDirection.SouthWest)
+        {
+            iconSR.sprite = ffIcons[1];
+            Quaternion newRot = Quaternion.Euler(90, 180, 0);
+            iconGO.transform.rotation = newRot;
+        }
+        else
+        {
+            iconSR.sprite = ffIcons[0];
+        }
+    }
+    
+    public void ClearCellDisplay()
+    {
+        foreach (Transform t in transform)
+        {
+            GameObject.Destroy(t.gameObject);
+        }
+    }
 
     private void OnDrawGizmos()
     {
         if (displayGrid)
         {
-            if (curFlowField == null)
+            if (currentFlowField == null)
             {
                 DrawGrid(gridController.gridSize, Color.red, gridController.cellRadius);
             }
@@ -158,7 +158,7 @@ public class GridDebug : MonoBehaviour
             }
         }
 
-        if (curFlowField == null) { return; }
+        if (currentFlowField == null) { return; }
         
         GUIStyle style = new GUIStyle(GUI.skin.label);
         style.alignment = TextAnchor.MiddleCenter;
@@ -167,7 +167,7 @@ public class GridDebug : MonoBehaviour
         {
             case FlowFieldDisplayType.CostField:
         
-                foreach (Cell curCell in curFlowField.grid)
+                foreach (Cell curCell in currentFlowField.grid)
                 {
                     Handles.Label(curCell.worldPos, curCell.cost.ToString(), style);
                 }
@@ -175,7 +175,7 @@ public class GridDebug : MonoBehaviour
         
            case FlowFieldDisplayType.IntegrationField:
         
-               foreach (Cell curCell in curFlowField.grid)
+               foreach (Cell curCell in currentFlowField.grid)
                {
                    Handles.Label(curCell.worldPos, curCell.bestCost.ToString(), style);
                }
