@@ -5,12 +5,14 @@ public class Cell
     public Vector3 worldPos;
     public Vector2Int gridIndex;
     public byte cost;
+    public ushort bestCost;
 
     public Cell(Vector3 _position, Vector2Int _gridIndex)
     {
         worldPos = _position;
         gridIndex = _gridIndex;
         cost = 1;
+        bestCost = ushort.MaxValue;
     }
 
     public void IncreaseCost(int amount)
