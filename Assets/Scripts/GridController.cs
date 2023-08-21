@@ -18,6 +18,8 @@ public class GridController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             InitializeFlowField();
+
+            currentFlowField.CreateCostField();
         }
     }
 }

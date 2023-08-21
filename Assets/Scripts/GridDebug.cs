@@ -158,21 +158,21 @@ public class GridDebug : MonoBehaviour
             }
         }
 
-        //if (curFlowField == null) { return; }
-        //
-        //GUIStyle style = new GUIStyle(GUI.skin.label);
-        //style.alignment = TextAnchor.MiddleCenter;
-        //
-        //switch (curDisplayType)
-        //{
-        //    case FlowFieldDisplayType.CostField:
-        //
-        //        foreach (Cell curCell in curFlowField.grid)
-        //        {
-        //            Handles.Label(curCell.worldPos, curCell.cost.ToString(), style);
-        //        }
-        //        break;
-        //
+        if (curFlowField == null) { return; }
+        
+        GUIStyle style = new GUIStyle(GUI.skin.label);
+        style.alignment = TextAnchor.MiddleCenter;
+        
+        switch (curDisplayType)
+        {
+            case FlowFieldDisplayType.CostField:
+        
+                foreach (Cell curCell in curFlowField.grid)
+                {
+                    Handles.Label(curCell.worldPos, curCell.cost.ToString(), style);
+                }
+                break;
+        
         //    case FlowFieldDisplayType.IntegrationField:
         //
         //        foreach (Cell curCell in curFlowField.grid)
@@ -181,9 +181,9 @@ public class GridDebug : MonoBehaviour
         //        }
         //        break;
         //
-        //    default:
-        //        break;
-        //}
+            default:
+                break;
+        }
 
     }
 
@@ -194,7 +194,7 @@ public class GridDebug : MonoBehaviour
         {
             for (int y = 0; y < drawGridSize.y; y++)
             {
-                Vector3 center = new Vector3(drawCellRadius * 2 * x + drawCellRadius, drawCellRadius * 2 * y + drawCellRadius, 0);
+                Vector3 center = new Vector3(drawCellRadius * 2 * x + drawCellRadius, 0, drawCellRadius * 2 * y + drawCellRadius);
                 Vector3 size = Vector3.one * drawCellRadius * 2;
                 Gizmos.DrawWireCube(center, size);
             }
