@@ -46,7 +46,7 @@ public class UnitController : MonoBehaviour
         Vector2Int gridSize = gridController.gridSize;
         float nodeRadius = gridController.cellRadius;
         Vector2 maxSpawnPos = new Vector2(gridSize.x * nodeRadius * 2 + nodeRadius, gridSize.y * nodeRadius * 2 + nodeRadius);
-        int colMask = LayerMask.GetMask("Impassible", "Units");
+        int colMask = LayerMask.GetMask("Impassable", "RoughTerrain");
         Vector3 newPos;
         for (int i = 0; i < numUnitsPerSpawn; i++)
         {
