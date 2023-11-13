@@ -8026,6 +8026,14 @@ PrefabInstance:
       propertyPath: weaponOverheatUI
       value: 
       objectReference: {fileID: 1187821267}
+    - target: {fileID: 6235426908075222593, guid: a9df24e86a219ac458086842d36682f6, type: 3}
+      propertyPath: overheatDecreaseRate
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235426908075222593, guid: a9df24e86a219ac458086842d36682f6, type: 3}
+      propertyPath: overheatIncreaseAmount
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7469210322841030696, guid: a9df24e86a219ac458086842d36682f6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -8062,6 +8070,10 @@ PrefabInstance:
       propertyPath: weaponOverheatUI
       value: 
       objectReference: {fileID: 771723441}
+    - target: {fileID: 8614537995510583966, guid: a9df24e86a219ac458086842d36682f6, type: 3}
+      propertyPath: overheatIncreaseAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9101498851599914018, guid: a9df24e86a219ac458086842d36682f6, type: 3}
       propertyPath: weaponRed
       value: 

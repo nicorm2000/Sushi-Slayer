@@ -24,7 +24,7 @@ MonoBehaviour:
   lifespan: 3
   damage: 1
   bulletPrefab: {fileID: 7942789937546522980, guid: 5a98438098c702846b4afd10364d5dd7, type: 3}
-  attackSpeed: 10
+  attackSpeed: 15
   duration: 0.5
   animationCurve:
     serializedVersion: 2

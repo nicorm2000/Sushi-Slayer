@@ -22,7 +22,7 @@ MonoBehaviour:
   weaponID: 2
   bulletSpeed: 15
   lifespan: 3
-  damage: 1
+  damage: 2
   bulletPrefab: {fileID: 7942789937546522980, guid: 1b712e26109792244a95e6c5dc0ff504, type: 3}
   attackSpeed: 10
   duration: 0.5
