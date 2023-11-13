@@ -28323,9 +28323,8 @@ MonoBehaviour:
   - Hey, this is the shop!
   - Please, choose your next weapon!
   - Let the carnage begin!
-  animateText: 1
   textMeshPro: {fileID: 134319937}
-  typingSpeed: 0.1
+  typingSpeed: 0.2
 --- !u!65 &1759705848
 BoxCollider:
   m_ObjectHideFlags: 0
