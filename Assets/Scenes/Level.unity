@@ -4690,8 +4690,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.0000001, z: 1}
-  m_Center: {x: 0, y: 0.000000013038516, z: -0.000000014901161}
+  m_Size: {x: 1.8676147, y: 1.0000001, z: 1}
+  m_Center: {x: 0.43380737, y: 0, z: 0}
 --- !u!1 &311356719
 GameObject:
   m_ObjectHideFlags: 0
@@ -15088,8 +15088,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.0000001, z: 1}
-  m_Center: {x: 0, y: 0.000000011175871, z: -0.000000022351742}
+  m_Size: {x: 1.7244225, y: 1.0000001, z: 1}
+  m_Center: {x: -0.36221123, y: 0, z: 0}
 --- !u!1 &1020241459
 GameObject:
   m_ObjectHideFlags: 0
@@ -27308,8 +27308,8 @@ MonoBehaviour:
   - Hey, this is the shop!
   - Please, choose your next weapon!
   - Let the carnage begin!
-  typingSpeed: 0.1
   textMeshPro: {fileID: 134319937}
+  typingSpeed: 0.1
 --- !u!65 &1759705848
 BoxCollider:
   m_ObjectHideFlags: 0
