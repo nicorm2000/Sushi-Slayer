@@ -18,6 +18,8 @@ public class AttackPlayer : MonoBehaviour
     private void Start()
     {
         damage = enemyData.damage;
+        invulnerability = true;
+        StartCoroutine(CooldownCoroutine());
     }
 
     private void OnTriggerEnter(Collider other)
